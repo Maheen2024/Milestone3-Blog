@@ -1,21 +1,21 @@
+'use client';
 import React from 'react';
 import CommentSection from '@/components/CommentSection';
 import AuthorCard from '@/components/AuthorCard';
-
 import Footer from '@/components/Footer';
 
 const posts = [
   {
     id: "1",
     title: 'Mastering Node.js',
-    description: 'Node.js is a powerful JavaScript runtime built on Chrome’s V8 engine for building fast and scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.', 
+    description: 'Node.js is a powerful JavaScript runtime built on Chrome’s V8 engine for building fast and scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.',
     date: '2024-12-27',
     image: '../images/Slide1.jpg',
   },
   {
     id: "2",
     title: "TypeScript",
-    description: "TypeScript is a superset of JavaScript that adds optional static typing and other features",
+    description: "TypeScript is a superset of JavaScript that adds optional static typing and other features.",
     date: "2024-12-27",
     image: '../images/Slide2.jpg',
   },
@@ -28,7 +28,7 @@ const posts = [
   },
   {
     id: "4",
-    title: "Tailwid CSS",
+    title: "Tailwind CSS",
     description: "Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.",
     date: "2024-12-27",
     image: '../images/Slide3.jpg',
@@ -57,7 +57,7 @@ const posts = [
   {
     id: "8",
     title: "Next.js",
-    description: "Next.js is an open-source React front-end development web framework that enables functionality such as server-side rendering and generating static websites for React based web applications.",
+    description: "Next.js is an open-source React front-end development web framework that enables functionality such as server-side rendering and generating static websites for React-based web applications.",
     date: "2024-12-27",
     image: '../images/Slide8.jpg',
   },
@@ -70,21 +70,27 @@ const posts = [
   },
 ];
 
+interface PostProps {
+  params: {
+    id: string;
+  };
+}
 
-export default async function Post({ params }: { params: { id: string } }) {
+export default function Post({ params }: PostProps) {
   const { id } = params;
-  const post =  posts.find((p) => p.id === id);
+  const post = posts.find((p) => p.id === id);
 
   if (!post) {
     return (
       <h2 className='text-2xl font-bold text-center mt-10'>Post not found</h2>
-
     );
   }
 
   const renderParagraphs = (description: string) => {
-    return description.split('/n').map((para, index) => (
-      <p key={index} className='mt-4 text-justify'>{para.trim()}</p>
+    return description.split('\n').map((para, index) => (
+      <p key={index} className='mt-4 text-justify'>
+        {para.trim()}
+      </p>
     ));
   };
 
@@ -98,16 +104,17 @@ export default async function Post({ params }: { params: { id: string } }) {
         <img
           src={post.image}
           alt={post.title}
-          className='w-full h-auto rounded-md mt-4' />
-
+          className='w-full h-auto rounded-md mt-4'
+        />
       )}
+
       <div className='mt-6 text-lg text-slate-700'>
         {renderParagraphs(post.description)}
-
       </div>
+
       <CommentSection postId={post.id} />
       <AuthorCard />
-      <Footer/>
+      <Footer />
     </div>
-  )
+  );
 }
