@@ -45,7 +45,7 @@ export default function Feature() {
         </div>
 
         <p className='text-center md:text-base text-black mb-6 px-4 animate-fade-in-down delay-100 mt-10'>
-          Dive into our diverse range of categories, where you'll discover a wealth of information on the latest trends, innovations, and breakthroughs in the world of technology. Whether you're interested in artificial intelligence, cybersecurity, gadgets, or software, you'll find a wealth of resources to help you stay informed and up-to-date. Explore our categories today and start your journey to becoming a tech expert!
+          Dive into our diverse range of categories, where you will discover a wealth of information on the latest trends, innovations, and breakthroughs in the world of technology. Whether you are interested in artificial intelligence, cybersecurity, gadgets, or software, you will find a wealth of resources to help you stay informed and up-to-date. Explore our categories today and start your journey to becoming a tech expert!
         </p>
       </section>
     </div>
