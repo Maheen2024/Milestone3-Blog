@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {cva, type VarientProps} from "class-variance-authority";
+import {cva} from "class-variance-authority";
 import {cn} from "../../lib/utils";
 
 const buttonVariants = cva (
@@ -10,7 +10,7 @@ const buttonVariants = cva (
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bf-destructive/90",
         outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondry: "bg-secondry text-secondry-foreground shadow-sm hover:bg-secondry/80",
+        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary umderline-offset-4 hover-undeline",
       },
@@ -32,14 +32,14 @@ defaultVariants: {
 
 export interface ButtonProps
 extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "destructive" | "outline" | "secondery" | "ghost" | "link";
+  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
   size?: "default" | "sm" | "lg" | "icons";
   asChild?: boolean;
 }
 
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps> (
-  ({ className, variant = "default", size = "default", asChild = false, ...props},ref)=> {
+  ({ className, variant = "default", size = "default", ...props},ref)=> {
     const Comp = "button";
     return (
       <Comp
