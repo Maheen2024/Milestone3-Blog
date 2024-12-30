@@ -72,7 +72,7 @@ const posts = [
 
 
 
-export default function Post({ params }: { params: { id: any } }) {
+export default function Post({ params }: { params: { id: string } }) {
   const { id } = params;
   const post = posts.find((p) => p.id === id);
 
