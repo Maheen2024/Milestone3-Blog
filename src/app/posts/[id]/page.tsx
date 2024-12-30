@@ -2,7 +2,6 @@
 import React from 'react';
 import CommentSection from '@/components/CommentSection';
 import AuthorCard from '@/components/AuthorCard';
-import { title } from 'process';
 import Footer from '@/components/Footer';
 
 const posts = [
